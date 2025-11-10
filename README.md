@@ -29,11 +29,11 @@ The purpose of this repository is to provide documentation that describes genera
 
 ## Pipelines
 
-Some of the pipelines that we commonly use include:
+Some of the pipelines that these instructions relate to include:
 
 Pipeline | Purpose | 
 --- | --- | 
-**[Read preprocessing](https://github.com/stenglein-lab/read_preprocessing)** | A workflow to perform quality and adapter trimming on Illumina fastq formatted datasets. |
+**[Read preprocessing](https://github.com/stenglein-lab/read_preprocessing)** | A workflow to perform quality and adapter trimming on Illumina fastq format datasets. |
 **[Remapping workflow](https://github.com/stenglein-lab/remapping_workflow)** | A workflow for remapping reads to sets of virus sequences. In our lab we use it to validate virus sequences identified by metagenomic sequencing and to output mapping statistics and plots.  |
 **[Species ID](https://github.com/stenglein-lab/species_id)** | A workflow to identify species by mapping reads to a database of discriminating sequences (for instance, to a set of cytochrome c oxidase I sequences)  |
 **[Align and Tree](https://github.com/stenglein-lab/align_and_tree)** | A workflow to make alignments and phylogenetic trees from one or more sets of nucleotide or protein sequences. |
@@ -43,14 +43,14 @@ Pipeline | Purpose |
 
 ## Running pipelines
 
-See the [dependencies section](#dependencies) below for information about the main dependencies required for running these pipelines (including nextflow and singularity).
+See the [dependencies section](#Software-dependencies) below for information about the main dependencies required for running these pipelines (including nextflow and singularity).
 
 ### Running from github
 
 A simple way to run these pipelines is [directly from github](https://nextflow.io/docs/latest/cli.html#launching-a-project), like this:
 
 ```
-nextflow run stenglein-lab/pipeline-name -resume -profile singularity  **...additional_input...**
+nextflow run stenglein-lab/pipeline-name -resume -profile singularity  ...additional_input...
 ```
 
 **...additional_input...**: Each pipeline has certain additional input requirements.  For instance, you must specify a directory containing the input fastq files when running the [read_processing pipeline]().  These input requirements are described separately for each pipeline in the corresponding repository.
@@ -80,6 +80,7 @@ Nextflow will cache pipeline code in `$HOME/.nextflow/assets/` and may continue 
 ```
 # delete cached code
 nextflow drop stenglein-lab/pipeline-name
+
 # now run the latest version
 nextflow run stenglein-lab/pipeline-name -profile singularity,test
 ```
@@ -119,7 +120,7 @@ nextflow run stenglein-lab/pipeline-name ... --output-dir some_other_results_dir
 
 ## Configurable parameters
 
-Pipelines have various configurable parameters, which will usually have default values assigned in a nextflow.config config file.  Parameter should be described in each pipeline's documentation, and can be overridden using command line options or additional configuration files, as [described in detail here](https://nextflow.io/docs/latest/config.html).
+Pipelines have various configurable parameters, which have default values assigned in a nextflow.config config file.  Parameter should be described in each pipeline's documentation, and can be overridden using command line options or additional configuration files, as [described in detail here](https://nextflow.io/docs/latest/config.html).
 
 ## Software dependencies
 
